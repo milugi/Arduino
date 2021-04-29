@@ -1,0 +1,40 @@
+#define pote1 A0
+#define rojo_pwm 6
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(rojo_pwm, OUTPUT);
+}
+
+void loop()
+{	
+  	//digitalWrite(rojo_pwm, HIGH);
+	int valor = map(analogRead(pote1),2,1021,0,255);
+  	Serial.println(valor);
+  	//delay(1000);
+    analogWrite(rojo_pwm,valor);
+    //analogWrite(rojo_pwm,valor);
+	//analogWrite(rojo_pwm,valor);
+
+  
+	/*int valor = 0;
+  	analogWrite(rojo_pwm,valor);
+  	delay(2000);
+  	valor = 50;
+  	analogWrite(rojo_pwm,valor);
+  	delay(2000);
+  	valor = 100;
+  	analogWrite(rojo_pwm,valor);
+  	delay(2000);
+	valor = 150;
+  	analogWrite(rojo_pwm,valor);
+    delay(2000);
+	valor = 200;
+  	analogWrite(rojo_pwm,valor);
+  	delay(2000);
+	valor = 250;
+  	analogWrite(rojo_pwm,valor);
+    delay(2000);*/
+  
+}
