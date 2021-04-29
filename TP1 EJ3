@@ -1,0 +1,66 @@
+#define rojo 8
+#define verde 10
+#define azul 12
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(rojo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(azul, OUTPUT);
+}
+
+void loop()
+{
+  for(int i=0; i<=6;i++){
+    colores(i);
+    delay(2000);
+    colores(7);
+    delay(2000);
+  }
+}
+
+void colores(int num){
+  switch (num) {
+  case 0: //ROJO
+    digitalWrite(rojo, HIGH);
+    digitalWrite(azul, LOW);
+    digitalWrite(verde, LOW);
+    break;
+  case 1: //VERDE
+    digitalWrite(rojo, LOW);
+    digitalWrite(azul, LOW);
+    digitalWrite(verde, HIGH);
+    break;
+  case 2: //AZUL
+    digitalWrite(rojo, LOW);
+    digitalWrite(azul, HIGH);
+    digitalWrite(verde, LOW);
+    break;
+  case 3: //AMARILLO
+    digitalWrite(rojo, HIGH);
+    digitalWrite(azul, LOW);
+    digitalWrite(verde, HIGH);
+    break;
+  case 4: //VIOLETA
+    digitalWrite(rojo, HIGH);
+    digitalWrite(azul, HIGH);
+    digitalWrite(verde, LOW);
+    break;
+  case 5: //CELESTE
+    digitalWrite(rojo, LOW);
+    digitalWrite(azul, HIGH);
+    digitalWrite(verde, HIGH);
+    break;
+  case 6: //BLANCO
+    digitalWrite(rojo, HIGH);
+    digitalWrite(azul, HIGH);
+    digitalWrite(verde, HIGH);
+    break;
+  default: //APAGADO
+    digitalWrite(rojo, LOW);
+    digitalWrite(azul, LOW);
+    digitalWrite(verde, LOW);
+    break;
+  }
+}
