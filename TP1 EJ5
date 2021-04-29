@@ -1,0 +1,31 @@
+#define rojo 6
+#define verde 9
+#define azul 11
+#define pote1 A0
+#define pote2 A1
+#define pote3 A3
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(rojo, OUTPUT);
+  pinMode(verde, OUTPUT);
+  pinMode(azul, OUTPUT);
+}
+
+void loop()
+{
+	int valor = map(analogRead(pote1),2,1021,0,255);
+  	Serial.println(valor);
+    digitalWrite(rojo, valor);
+  
+	int valor2 = map(analogRead(pote2),2,1021,0,255);
+  	Serial.println(valor2);
+  	digitalWrite(azul, valor2);
+
+	int valor3 = map(analogRead(pote3),2,1021,0,255);
+  	Serial.println(valor3);
+  	digitalWrite(verde, valor3);
+
+  }
