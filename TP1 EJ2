@@ -1,0 +1,27 @@
+#define amarillo 10
+#define verde 8
+#define rojo 9
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(verde, OUTPUT);
+  pinMode(amarillo, OUTPUT);
+  pinMode(rojo, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(verde, HIGH);
+  delay(2000); // Wait for 1000 millisecond(s)
+  digitalWrite(verde, LOW);
+  delay(2000); // Wait for 1000 millisecond(s)
+  digitalWrite(rojo, HIGH);
+  delay(2000); // Wait for 1000 millisecond(s)
+  digitalWrite(rojo, LOW);
+  delay(2000); // Wait for 1000 millisecond(s)
+  digitalWrite(amarillo, HIGH);
+  delay(2000); // Wait for 1000 millisecond(s)
+  digitalWrite(amarillo, LOW);
+  delay(2000); // Wait for 1000 millisecond(s)
+}
