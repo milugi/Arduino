@@ -1,0 +1,38 @@
+#define rojo 9
+#define verde 10
+#define azul 11
+#define ldr A0
+#define ldr1 A1
+#define ldr2 A2
+
+void setup()
+{
+	Serial.begin(9600);
+	pinMode(rojo, OUTPUT);
+	pinMode(verde, OUTPUT);
+	pinMode(azul, OUTPUT);
+}
+
+
+void loop()
+{
+  	Serial.println(analogRead(ldr));
+    delay(1500);
+	int valor = analogRead(ldr);
+	analogWrite(rojo, valor);
+  
+  	Serial.println(analogRead(ldr1));
+    delay(1500);
+	int valor1 = analogRead(ldr1);
+	analogWrite(azul, valor1);
+  
+  	Serial.println(analogRead(ldr2));
+    delay(1500);
+	int valor2 = analogRead(ldr2);
+	analogWrite(verde, valor2);
+  
+}
+
+
+
+
