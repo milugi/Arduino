@@ -1,0 +1,18 @@
+#define azul 13
+#define gris 11
+#define flex A0
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(azul, OUTPUT);
+  pinMode(gris, OUTPUT);
+}
+
+void loop()
+{
+  int valor = analogRead(flex);
+  Serial.println(valor);
+  analogWrite(gris,valor);
+  analogWrite(azul,valor);
+}
