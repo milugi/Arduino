@@ -1,0 +1,43 @@
+#define ldr A1
+#define rojo 9
+#define blanco 5
+#define naranja 3
+
+void setup()
+{
+	Serial.begin(9600);
+  	pinMode(rojo, OUTPUT);
+  	pinMode(blanco, OUTPUT);
+  	pinMode(naranja, OUTPUT);
+}
+
+void loop()
+{
+  	//Serial.println(analogRead(ldr));
+	int valor = map(analogRead(ldr),54,974,1,5);
+  	Serial.println(valor);
+  	delay(733);
+  	if (valor == 1) {
+    	digitalWrite(rojo,HIGH);
+      	delay(733);
+      	digitalWrite(rojo, LOW);
+    } else if (valor == 2){
+		digitalWrite(rojo, HIGH);
+      	digitalWrite(blanco, HIGH);
+        delay(733);
+      	digitalWrite(rojo, LOW);
+      	digitalWrite(blanco, LOW);
+    }else if (valor == 3){
+    	digitalWrite(rojo, HIGH);
+    	digitalWrite(blanco, HIGH);
+      	digitalWrite(naranja, HIGH);
+      	delay(733);
+    	digitalWrite(rojo, LOW);
+    	digitalWrite(blanco, LOW);
+      	digitalWrite(naranja, LOW);      
+    }else{
+    	digitalWrite(rojo, LOW);
+    	digitalWrite(blanco, LOW);
+      	digitalWrite(naranja, LOW);
+    }	
+}
