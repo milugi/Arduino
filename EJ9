@@ -1,6 +1,6 @@
-#define rojo 11
-#define azul 10
-#define verde 9
+#define rojo 3
+#define azul 11
+#define verde 10
 #define pulsador 2
 
 int numero;
