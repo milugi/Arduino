@@ -1,0 +1,33 @@
+#include <Servo.h>
+int cont = 0;
+int num;
+Servo servoMotor; 
+
+void setup() {
+  Serial.begin(9600);
+  servoMotor.attach(9);
+}
+ 
+void loop() {
+  servoMotor.write(0);
+  delay(1000);
+  num = random(0, 180);
+
+  servoMotor.write(num);
+  cont += 1;
+  delay(1000);
+  
+  if (cont == 3){
+    cont = 0;
+    Serial.print("La posicion en que se encuentra es la numero : ");
+    Serial.println(num);
+    
+
+    servoMotor.write(0);
+    delay(2000);
+    servoMotor.write(180);
+    delay(2000);
+    servoMotor.write(90);
+    delay(2000);
+  }
+}
