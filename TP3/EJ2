@@ -1,0 +1,20 @@
+#define pote A0
+#include <Servo.h>
+
+int num; 
+Servo servoMotor;
+
+void setup()
+{
+  Serial.begin(9600);
+  servoMotor.attach(3);
+}
+
+void loop()
+{
+  num = analogRead(pote);
+  num = map(num, 0, 1023, 0, 180);
+  Serial.println(num);
+  servoMotor.write(num);
+  delay(100);
+}
