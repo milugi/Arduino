@@ -1,0 +1,15 @@
+#include <Servo.h>
+int num;
+Servo servoMotor;
+ 
+void setup() {
+  Serial.begin(9600);
+  servoMotor.attach(9);
+}
+ 
+void loop() {
+  num = random(0, 180);
+  Serial.println(num);
+  servoMotor.write(num);
+  delay(1000);
+}
