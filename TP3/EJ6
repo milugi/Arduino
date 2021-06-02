@@ -1,0 +1,59 @@
+#define echo 9
+#define trig 10
+const int pinBuzzer = 11;
+
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(trig, OUTPUT);
+  pinMode(echo, INPUT);
+}
+
+void loop()
+{
+  digitalWrite(trig, LOW);
+  delayMicroseconds(5);
+  digitalWrite(trig, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trig, LOW);
+  
+  int duration = pulseIn(echo, HIGH);
+  
+  double cm = duration*0.034/2;
+  Serial.print("Distance: ");
+  Serial.print(cm);
+  Serial.println(" cm");
+  delay(250);
+  
+  
+    if (cm > 20 && cm <30 ) {
+		tone(pinBuzzer, 294);
+		delay(1500);
+		noTone(pinBuzzer);
+		delay(1500);
+      
+  } else if  (cm > 12 && cm <20 ) {
+		tone(pinBuzzer, 392);
+		delay(1000);
+		noTone(pinBuzzer);
+		delay(1000);
+      
+  } else if  (cm > 6 && cm <12 ) {
+		tone(pinBuzzer, 311);
+		delay(500);
+		noTone(pinBuzzer);
+		delay(500);
+       
+  } else if  (cm > 2 && cm <6) {
+		tone(pinBuzzer, 415);
+		delay(250);  
+		noTone(pinBuzzer);
+		delay(250);     
+      
+  } else {
+        noTone(pinBuzzer);
+  		delay(500);
+  }  
+  
+  
